@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Janaina | Portfolio</title>
+<meta name="description" content="Portfolio of Janaina: IT support and blue team projects, write-ups and certifications.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F5F6F4; --ink:#1E2830; --muted:#66737D; --line:#DDE1E0; --accent:#3E6A8A; --soft:#E9EDEC;
+  --serif:"Newsreader",Georgia,"Times New Roman",serif;
+  --sans:"DM Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){--bg:#12181D;--ink:#E7ECEE;--muted:#93A0A9;--line:#262F36;--accent:#8DB6D4;--soft:#1A2229}
+}
+:root[data-theme="dark"]{--bg:#12181D;--ink:#E7ECEE;--muted:#93A0A9;--line:#262F36;--accent:#8DB6D4;--soft:#1A2229}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:5rem}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1.0625rem/1.65 var(--sans);-webkit-font-smoothing:antialiased;transition:background .4s,color .4s}
+a{color:inherit;text-decoration-color:var(--line);text-underline-offset:.25em;transition:text-decoration-color .25s,color .25s}
+a:hover{text-decoration-color:var(--accent);color:var(--accent)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+.wrap{max-width:44rem;margin:0 auto;padding:0 1.5rem}
+
+header{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--bg) 82%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:4rem;gap:1rem}
+.brand{font-family:var(--serif);font-size:1.25rem;text-decoration:none}
+nav{display:flex;gap:1.4rem;font-size:.95rem;color:var(--muted);overflow-x:auto;scrollbar-width:none}
+nav a{text-decoration:none;white-space:nowrap}
+nav a:hover{color:var(--ink)}
+.tools{display:flex;gap:.4rem;align-items:center}
+.tools .lang-btn,.tools #theme{display:inline-flex;align-items:center;gap:.4rem;font:500 .85rem var(--sans);color:var(--muted);background:none;border:1px solid var(--line);border-radius:99px;padding:.3rem .75rem;cursor:pointer;transition:all .25s}
+.tools .lang-btn:hover,.tools #theme:hover,.tools .lang-btn[aria-expanded="true"]{color:var(--ink);border-color:var(--muted)}
+.lang-btn svg{width:1rem;height:1rem;stroke:currentColor;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.lang{position:relative}
+.lang-menu{position:absolute;right:0;top:calc(100% + .5rem);min-width:10rem;margin:0;padding:.35rem;list-style:none;background:var(--bg);border:1px solid var(--line);border-radius:14px;box-shadow:0 12px 32px rgba(0,0,0,.08);animation:pop .18s ease-out}
+.lang-menu[hidden]{display:none}
+.lang-menu button{display:flex;justify-content:space-between;align-items:center;width:100%;font:400 .95rem var(--sans);color:var(--ink);background:none;border:0;border-radius:9px;padding:.55rem .75rem;cursor:pointer;text-align:left}
+.lang-menu button:hover{background:var(--soft)}
+.lang-menu button[aria-checked="true"]{color:var(--accent);font-weight:500}
+.lang-menu button[aria-checked="true"]::after{content:"✓"}
+@keyframes pop{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:none}}
+
+.hero{padding:7rem 0 5rem;animation:rise .9s cubic-bezier(.2,.7,.2,1) both}
+.hero h1{font:400 clamp(2.4rem,6.5vw,3.9rem)/1.1 var(--serif);letter-spacing:-.02em;margin:0 0 1.6rem;max-width:16em}
+.hero p{color:var(--muted);max-width:34rem;margin:0 0 2rem}
+.cta{display:flex;gap:.8rem;flex-wrap:wrap}
+.btn{display:inline-block;padding:.7rem 1.3rem;border-radius:99px;border:1px solid var(--ink);text-decoration:none;font-weight:500;font-size:.97rem;transition:all .3s}
+.btn.fill{background:var(--ink);color:var(--bg)}
+.btn.fill:hover{background:var(--accent);border-color:var(--accent);color:var(--bg)}
+.btn.line:hover{background:var(--soft);color:var(--ink)}
+@keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+
+section{padding:3.5rem 0}
+h2{font:400 1.9rem/1.2 var(--serif);letter-spacing:-.01em;margin:0 0 1.8rem}
+.about p{margin:0 0 1.1rem;max-width:36rem}
+
+.list{border-top:1px solid var(--line)}
+.row{display:grid;grid-template-columns:1fr auto;gap:.3rem 1.5rem;padding:1.4rem 0;border-bottom:1px solid var(--line);text-decoration:none}
+.row h3{font:500 1.12rem/1.4 var(--sans);margin:0;transition:color .25s}
+.row:hover h3{color:var(--accent)}
+.row p{grid-column:1;margin:0;color:var(--muted);font-size:.98rem;max-width:34rem}
+.row .meta{grid-row:1;grid-column:2;color:var(--muted);font-size:.9rem;text-align:right;white-space:nowrap}
+.row .tags{grid-column:1;color:var(--muted);font-size:.88rem;font-style:italic;font-family:var(--serif)}
+
+.links{display:grid;grid-template-columns:repeat(auto-fit,minmax(11rem,1fr));gap:.6rem}
+.links a{padding:1rem 1.1rem;border-radius:14px;background:var(--soft);text-decoration:none;transition:transform .3s,background .3s}
+.links a:hover{transform:translateY(-3px)}
+.links span{display:block;color:var(--muted);font-size:.88rem}
+footer{padding:3rem 0 4rem;color:var(--muted);font-size:.9rem;border-top:1px solid var(--line);margin-top:2rem}
+
+
+.glow{--size:320px;position:fixed;top:0;left:0;width:var(--size);height:var(--size);margin:calc(var(--size) / -2) 0 0 calc(var(--size) / -2);border-radius:50%;pointer-events:none;z-index:0;opacity:0;
+  background:radial-gradient(circle,color-mix(in srgb,var(--accent) 22%,transparent) 0%,transparent 65%);
+  transition:opacity .6s;will-change:transform}
+.glow.on{opacity:1}
+main,footer{position:relative;z-index:1}
+@media (hover:none),(prefers-reduced-motion:reduce){.glow{display:none}}
+@media (max-width:560px){
+  header .wrap{height:auto;padding-top:.8rem;padding-bottom:.8rem;flex-wrap:wrap}
+  nav{order:3;width:100%}
+  .hero{padding-top:4rem}
+  .row{grid-template-columns:1fr}
+  .row .meta{grid-row:auto;grid-column:1;text-align:left}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+}
+</style>
+</head>
+<body>
+<div class="glow" id="glow" aria-hidden="true"></div>
+
+<header>
+  <div class="wrap">
+    <a class="brand" href="#top">Janaina</a>
+    <nav aria-label="Sections">
+      <a href="#about" data-pt="Sobre" data-es="Sobre mí">About</a>
+      <a href="#projects" data-pt="Projetos" data-es="Proyectos">Projects</a>
+      <a href="#writeups" data-pt="Write-ups" data-es="Write-ups">Write-ups</a>
+      <a href="#certs" data-pt="Certificações" data-es="Certificaciones">Certifications</a>
+      <a href="#contact" data-pt="Contato" data-es="Contacto">Contact</a>
+    </nav>
+    <div class="tools">
+      <div class="lang">
+        <button class="lang-btn" id="langbtn" aria-haspopup="menu" aria-expanded="false" aria-controls="langmenu" aria-label="Language">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c2.6 2.6 4 5.7 4 9s-1.4 6.4-4 9c-2.6-2.6-4-5.7-4-9s1.4-6.4 4-9z"/></svg>
+          <span id="langcode">EN</span>
+        </button>
+        <ul class="lang-menu" id="langmenu" role="menu" hidden>
+          <li role="none"><button role="menuitemradio" data-lang="en" aria-checked="true">English</button></li>
+          <li role="none"><button role="menuitemradio" data-lang="pt" aria-checked="false">Português</button></li>
+          <li role="none"><button role="menuitemradio" data-lang="es" aria-checked="false">Español</button></li>
+        </ul>
+      </div>
+      <button id="theme" aria-label="Toggle dark mode">◐</button>
+    </div>
+  </div>
+</header>
+
+<main id="top" class="wrap">
+
+  <div class="hero">
+    <h1 data-pt="Protegendo redes e ajudando a resolver seus problemas de tecnologia." data-es="Protegiendo redes y ayudando a las personas a resolver sus problemas de tecnología.">Defending networks and helping people fix their technology.</h1>
+    <p data-pt="Sou a Janaina, de João Pessoa, Brasil. Este é o meu espaço para projetos pessoais, laboratórios, write-ups e o que estou estudando, com foco em suporte de TI e blue team." data-es="Soy Janaina, de João Pessoa, Brasil. Este es mi espacio para proyectos personales, laboratorios, write-ups y lo que estoy estudiando, con foco en soporte de TI y blue team.">I’m Janaina, based in João Pessoa, Brazil. This is where I keep my personal projects, lab work, write-ups and what I’m studying, with a focus on IT support and blue team security.</p>
+    <div class="cta">
+      <a class="btn fill" href="#projects" data-pt="Ver projetos" data-es="Ver proyectos">See projects</a>
+      <a class="btn line" href="#contact" data-pt="Entrar em contato" data-es="Ponte en contacto">Get in touch</a>
+    </div>
+  </div>
+
+  <section id="about" class="about">
+    <h2 data-pt="Sobre mim" data-es="Sobre mí">About me</h2>
+    <p data-pt="Profissional de TI com uma grande paixão por cibersegurança e muito confortável com computadores. Tenho experiência com configuração básica de redes e protocolos como DHCP, DNS e TCP/IP, sistemas de ticketing como Zendesk e Jira, Microsoft 365, SIEM, resposta a incidentes e estou atualmente construindo uma base sólida em segurança." data-es="Trabajo en ventas y me siento muy cómoda con las computadoras. He resuelto problemas de HTML y CSS en proyectos freelance informales y ahora estoy construyendo una base sólida en redes y seguridad.">IT Professional with a passion for cybersecurity and very comfortable with computers. I have experience with basic network configuration and protocols such as DHCP, DNS and TCP/IP, ticketing systems like Zendesk and Jira, Microsoft 365, SIEM, incident response and I’m now building a solid foundation in security.</p>
+    <p data-pt="Tenho também experiência prática com linguagens de programação como Python e Java. Atualmente estou construindo um laboratório de segurança em casa e documentando o que aprendo. Meu objetivo é trabalhar remotamente em suporte de TI e, posteriormente, como analista SOC júnior." data-es="Estoy armando un home lab de seguridad, estudiando redes con Cisco Networking Academy y documentando lo que aprendo. Mi objetivo es trabajar de forma remota en soporte de TI y, más adelante, como analista SOC junior.">I also have hands-on experience with programming languages such as Python and Java. Currently building a security home lab and documenting what I learn. My goal is to work remotely in IT support and later as a junior SOC analyst.</p>
+    <p data-pt="Inglês C2, espanhol C1 e português nativo." data-es="Inglés C2, español C1 y portugués nativo.">English C2, Spanish C1, and native Portuguese.</p>
+  </section>
+
+  <section id="projects">
+    <h2 data-pt="Projetos" data-es="Proyectos">Projects</h2>
+    <div class="list">
+ 
+      <a class="row" href="https://github.com/YOUR-USERNAME/home-lab">
+        <h3 data-pt="Detectando Força Bruta e PowerShell Suspeito no Splunk" data-es="Detectando fuerza bruta y PowerShell sospechoso en Splunk">Detecting Brute Force and Suspicious PowerShell in Splunk</h3>
+        <span class="meta" data-pt="Em andamento" data-es="En curso">In progress</span>
+        <p data-pt="Enviando logs do Windows e Sysmon do VM do Windows 11 para o Splunk. Escrevendo detecções SPL para logons falhos, novos serviços e PowerShell codificado, e depois construindo um painel e alertas." data-es="Entorno virtual para practicar monitoreo, análisis de logs y respuesta a incidentes.">Forward Windows Event Logs and Sysmon from the Windows 11 VM to Splunk. Write SPL detections for failed logons, new services, and encoded PowerShell, then build a dashboard and alerts.</p>
+        <span class="tags">SIEM, Wazuh, VirtualBox</span>
+      </a>
+      <a class="row" href="https://github.com/YOUR-USERNAME/project-two">
+        <h3 data-pt="Nome do seu segundo projeto" data-es="Nombre de tu segundo proyecto">Your second project name</h3>
+        <span class="meta" data-pt="Ano" data-es="Año">Year</span>
+        <p data-pt="Uma ou duas frases sobre o problema que você resolveu e o que aprendeu." data-es="Una o dos frases sobre el problema que resolviste y lo que aprendiste.">One or two sentences about the problem you solved and what you learned.</p>
+        <span class="tags">Python, Linux</span>
+      </a>
+      <a class="row" href="https://github.com/YOUR-USERNAME/project-three">
+        <h3 data-pt="Nome do seu terceiro projeto" data-es="Nombre de tu tercer proyecto">Your third project name</h3>
+        <span class="meta" data-pt="Ano" data-es="Año">Year</span>
+        <p data-pt="Descreva o resultado de forma simples e direta." data-es="Describe el resultado de forma simple y directa.">Describe the outcome plainly and directly.</p>
+        <span class="tags">HTML, CSS</span>
+      </a>
+    </div>
+  </section>
+
+  <section id="writeups">
+    <h2>Write-ups</h2>
+    <div class="list">
+      <!-- EDIT: link each to your write-up (GitHub, blog or Notion) -->
+      <a class="row" href="#">
+        <h3 data-pt="Título do seu primeiro write-up" data-es="Título de tu primer write-up">Title of your first write-up</h3>
+        <span class="meta">TryHackMe</span>
+        <p data-pt="Resumo curto: o desafio, a abordagem e o que você aprendeu." data-es="Resumen corto: el desafío, el enfoque y lo que aprendiste.">A short summary: the challenge, your approach and what you learned.</p>
+      </a>
+      <a class="row" href="#">
+        <h3 data-pt="Título do seu segundo write-up" data-es="Título de tu segundo write-up">Title of your second write-up</h3>
+        <span class="meta" data-pt="Estudo de caso" data-es="Caso de estudio">Case study</span>
+        <p data-pt="Pode ser um caso de suporte, uma investigação de logs ou uma configuração de rede." data-es="Puede ser un caso de soporte, una investigación de logs o una configuración de red.">It can be a support case, a log investigation or a network setup.</p>
+      </a>
+    </div>
+  </section>
+
+  <section id="certs">
+    <h2 data-pt="Certificações e cursos" data-es="Certificaciones y cursos">Certifications and courses</h2>
+    <div class="list">
+      <!-- EDIT: only list what is real; add credential links when you have them -->
+      <a class="row" href="https://www.netacad.com/">
+        <h3>Cisco Networking Academy: Network Basics</h3>
+        <span class="meta" data-pt="Em andamento" data-es="En curso">In progress</span>
+        <p data-pt="Fundamentos de redes: modelos OSI e TCP/IP, endereçamento IP e configuração básica." data-es="Fundamentos de redes: modelos OSI y TCP/IP, direccionamiento IP y configuración básica.">Networking fundamentals: OSI and TCP/IP models, IP addressing and basic configuration.</p>
+      </a>
+      <div class="row">
+        <h3 data-pt="Próxima certificação" data-es="Próxima certificación">Next certification</h3>
+        <span class="meta" data-pt="Planejada" data-es="Planificada">Planned</span>
+        <p data-pt="Adicione aqui as certificações que você pretende fazer." data-es="Añade aquí las certificaciones que planeas hacer.">Add the certifications you plan to take here.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2 data-pt="Contato e links" data-es="Contacto y enlaces">Contact and links</h2>
+    <div class="links">
+      <!-- EDIT: replace every placeholder -->
+      <a href="mailto:jwnainavieira@gmail.com"><span data-pt="E-mail" data-es="Correo">Email</span>jwnainavieira<br>@gmail.com</a>
+      <a href="https://www.linkedin.com/in/janavasconcelos"><span>LinkedIn</span>/in/janavasconcelos</a>
+      <a href="https://github.com/jwnaina"><span>GitHub</span>@jwnaina</a>
+      <a href="https://tryhackme.com/p/JWNAINA"><span>TryHackMe</span>@jwnaina</a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">© <span id="year"></span> Janaina</div>
+</footer>
+
+<script>
+(function(){
+  var root=document.documentElement, els=document.querySelectorAll("[data-pt]"), items=document.querySelectorAll("#langmenu [data-lang]");
+  var codes={en:"en",pt:"pt-BR",es:"es"}, btn=document.getElementById("langbtn"), menu=document.getElementById("langmenu");
+  els.forEach(function(e){e.setAttribute("data-en",e.textContent)});
+  function setLang(l){
+    els.forEach(function(e){e.textContent=e.getAttribute("data-"+l)});
+    root.lang=codes[l];
+    document.getElementById("langcode").textContent=l.toUpperCase();
+    items.forEach(function(b){b.setAttribute("aria-checked",b.getAttribute("data-lang")===l)});
+    try{localStorage.setItem("lang",l)}catch(e){}
+  }
+  function toggle(open){
+    menu.hidden=!open;
+    btn.setAttribute("aria-expanded",open);
+  }
+  btn.onclick=function(e){e.stopPropagation();toggle(menu.hidden)};
+  items.forEach(function(b){b.onclick=function(){setLang(b.getAttribute("data-lang"));toggle(false);btn.focus()}});
+  document.addEventListener("click",function(e){if(!menu.hidden&&!menu.contains(e.target))toggle(false)});
+  document.addEventListener("keydown",function(e){if(e.key==="Escape"&&!menu.hidden){toggle(false);btn.focus()}});
+  document.getElementById("theme").onclick=function(){
+    var dark=root.getAttribute("data-theme")==="dark"||(!root.getAttribute("data-theme")&&matchMedia("(prefers-color-scheme:dark)").matches);
+    var next=dark?"light":"dark";
+    root.setAttribute("data-theme",next);
+    try{localStorage.setItem("theme",next)}catch(e){}
+  };
+  try{
+    var t=localStorage.getItem("theme"); if(t) root.setAttribute("data-theme",t);
+    var l=localStorage.getItem("lang"); if(l&&codes[l]&&l!=="en") setLang(l);
+  }catch(e){}
+  var glow=document.getElementById("glow");
+  if(glow&&matchMedia("(hover:hover)").matches&&!matchMedia("(prefers-reduced-motion:reduce)").matches){
+    var tx=0,ty=0,x=0,y=0,run=false;
+    function tick(){
+      x+=(tx-x)*.12; y+=(ty-y)*.12;
+      glow.style.transform="translate3d("+x+"px,"+y+"px,0)";
+      if(Math.abs(tx-x)>.5||Math.abs(ty-y)>.5){requestAnimationFrame(tick)}else{run=false}
+    }
+    document.addEventListener("pointermove",function(e){
+      tx=e.clientX;ty=e.clientY;
+      if(!glow.classList.contains("on")){x=tx;y=ty;glow.classList.add("on")}
+      if(!run){run=true;requestAnimationFrame(tick)}
+    });
+    document.documentElement.addEventListener("pointerleave",function(){glow.classList.remove("on")});
+  }
+  document.getElementById("year").textContent=new Date().getFullYear();
+})();
+</script>
+</body>
+</html>
